@@ -23,7 +23,8 @@
     "passport-twitter": "latest",
     "passport-google-oauth": "latest",
     "composable-middleware": "^0.3.0",
-    "connect-mongo": "^0.4.1"
+    "connect-mongo": "^0.4.1",
+    "nodemailer": "1.3.0"
   },
   "devDependencies": {
     "grunt": "~0.4.4",
