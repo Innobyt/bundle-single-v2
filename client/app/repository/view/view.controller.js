@@ -13,7 +13,7 @@
 		$scope.gamekeys = repository.view({ gametitle: $stateParams.gametitle });
 		$scope.gametitle = $stateParams.gametitle;
 		var data = $scope.gamekeys;
-		console.log(data);
+//		console.log(data);
 		$scope.tableParams = new ngTableParams({
 				page: 1,            // show first page
 				count: 10,          // count per page

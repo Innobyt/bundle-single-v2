@@ -10,7 +10,7 @@
 		<h2>Unclaimed CD-Keys</h2>
 		<a class="btn btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="{{gametitle}}-unclaimed.csv">Export to CSV</a>
 		<table ng-table="tableParams" class="table" export-csv="csv">
-			<tr ng-repeat="key in $data | filter: { keystatus: true } ">
+			<tr ng-repeat="key in gamekeys | filter: { keystatus: true } ">
 				<td data-title="'CD-Keys'">
 					{{key.gamekey}}
 				</td>
@@ -21,7 +21,7 @@
 		<h2>Claimed CD-Keys</h2>
 		<a class="btn btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="{{gametitle}}-claimed.csv">Export to CSV</a>
 		<table ng-table="tableParams" class="table" export-csv="csv">
-			<tr ng-repeat="key in $data | filter: { keystatus: false } ">
+			<tr ng-repeat="key in gamekeys | filter: { keystatus: false } ">
 				<td data-title="'CD-Keys'">
 					{{key.gamekey}}
 				</td>
