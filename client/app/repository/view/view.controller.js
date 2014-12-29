@@ -28,10 +28,10 @@
 				$filter('filter')(data, params.filter()) :
 				data;
 
-				$scope.users = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
+				$scope.keys = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
 
 				params.total(orderedData.length); // set total for recalc pagination
-				$defer.resolve($scope.users);
+				$defer.resolve($scope.keys);
         
 			}
 		});
