@@ -6,28 +6,20 @@
 </header>
 
 <div class="container">
-	<div class="col-md-6">
-		<h2>Unclaimed CD-Keys</h2>
-		<a class="btn btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="{{gametitle}}-unclaimed.csv">Export to CSV</a>
-		<table ng-table="tableParams" class="table" export-csv="csv">
-			<tr ng-repeat="key in gamekeys | filter: { keystatus: true } ">
-				<td data-title="'CD-Keys'">
-					{{key.gamekey}}
-				</td>
-			</tr>
-		</table>
-	</div>
-	<div class="col-md-6">
 		<h2>Claimed CD-Keys</h2>
-		<a class="btn btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="{{gametitle}}-claimed.csv">Export to CSV</a>
-		<table ng-table="tableParams" class="table" export-csv="csv">
-			<tr ng-repeat="key in gamekeys | filter: { keystatus: false } ">
-				<td data-title="'CD-Keys'">
-					{{key.gamekey}}
-				</td>
-			</tr>
+		<a class="btn btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="{{gametitle}}.csv">Export to CSV</a>
+		<table ng-table="tableParams" show-filter="true" class="table" export-csv="csv">
+			<tbody>
+				<tr ng-repeat="key in $data ">
+					<td data-title="'CD-Keys'">
+						{{key.gamekey}}
+					</td>
+					<td data-title="'keystatus'" filter="{ 'keystatus': 'text' }">
+						{{key.keystatus}}
+					</td>
+				</tr>
+			</tbody>
 		</table>
-	</div>
 </div>
 
 <footer class="footer">

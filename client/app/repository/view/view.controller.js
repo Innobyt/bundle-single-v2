@@ -13,25 +13,27 @@
 		$scope.gamekeys = repository.view({ gametitle: $stateParams.gametitle });
 		$scope.gametitle = $stateParams.gametitle;
 		var data = $scope.gamekeys;
-//		console.log(data);
+
 		$scope.tableParams = new ngTableParams({
-				page: 1,            // show first page
-				count: 10,          // count per page
-//				filter: {
-//					gamename: ''       // initial filter
-//				}
-			}, {
-				total: data.length, // length of data
-				getData: function($defer, params) {
-				// use build-in angular filter
-					var orderedData = params.filter() ?
-					$filter('filter')(data, params.filter()) :
-					data;
+			page: 1,            // show first page
+			count: 10,           // count per page
+			filter: {
+				keystatus: ''	 // initial filter
+			}
+		}, {
+			total: data.length, // length of data
+			getData: function($defer, params) {
+			// use build-in angular filter
+				var orderedData = params.filter() ?
+				$filter('filter')(data, params.filter()) :
+				data;
 
-					params.total(orderedData.length); // set total for recalc pagination
-					$defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-				}
-			});
+				$scope.users = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
 
+				params.total(orderedData.length); // set total for recalc pagination
+				$defer.resolve($scope.users);
+        
+			}
+		});
 	}
 })();
