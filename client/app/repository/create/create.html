@@ -1,0 +1,33 @@
+<div ng-include="'../components/navbar/navbar.html'"></div>
+<header class="hero-unit" id="banner">
+	<div class="container">
+		<h1>Game Repository Create</h1>
+	</div>
+</header>
+<div class="container">
+	<form>
+		<div class="form-group">
+			<label>Game Title</label>
+			<input input type="text" id="gamename" class="form-control" placeholder="Enter Game Title Here" ng-model="formData.gamename">
+		</div>
+		<div class="form-group">
+			<label>Game Key</label>
+			<input type="text" id="gamekeys" class="form-control" placeholder="Enter Single CD-key Here" ng-model="formData.gamekeys">
+		</div>
+		<div class="form-group">
+			<label for="keyupload">File Upload for Game Keys (.csv)</label>
+			<input type="file" id="gamekeys" onchange="angular.element(this).scope().filesChanged(this)" ng-model="formData.gamekeys">
+			<p class="help-block">For the .csv file please place all CD-keys without a heading, in the 1st column only.</p>
+		</div>
+		<div class="form-group">
+			<label>Threshold</label>
+			<input type="text" id="threshold" class="form-control" placeholder="10" ng-model="formData.threshold">
+		</div>
+		<button type="submit" class="btn btn-primary" ng-click="submit()">Add</button>
+	</form>
+</div>
+<footer class="footer">
+  <div class="container">
+      <p><a href="http://innobyt.com">Innobyt Redemption Web Application</a></p>
+  </div>
+</footer>
