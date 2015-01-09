@@ -21,7 +21,7 @@ var email = {
     options : function(options){
         return{
             subject: '✔  Your Keys! Have Arrived!',
-            from: '',
+            from: this.transporter.user,
             text : options.text,
             to: options.to
         }
