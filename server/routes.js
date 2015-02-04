@@ -20,6 +20,7 @@ module.exports = function(app) {
   // All other routes should redirect to the index.html
   app.route('/*')
     .get(function(req, res) {
-      res.sendfile(app.get('appPath') + '/index.html');
+       res.sendfile('index.html', { root: '../client' }); //when deploying using the cmd --> pm2 start server/app.js
+ //     res.sendfile(app.get('appPath') + '/index.html');
     });
 };
