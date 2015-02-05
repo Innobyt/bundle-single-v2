@@ -2,26 +2,29 @@
 	'use strict';
 
 	angular.module('gamerepoApp')
-	  .controller('CreateCtrl', CreateCtrl);
-	
-	CreateCtrl.$inject=['$scope', 'repository'];
+		.controller('CreateCtrl', CreateCtrl);
+
+	CreateCtrl.$inject = ['$scope', '$filter', 'repository'];
 
 	// CreateCtrl requires 1 actions of CRUD, C as in create
-	function CreateCtrl($scope, repository) {
+	function CreateCtrl($scope, $filter, repository) {
 
 		// initialize gameRepo controller and services
-		$scope.initialize = function(){
+		$scope.initialize = function() {
 			$scope.formData = new repository();
 		};
 
 		// post, gameRepo creation ('C' in Crud)
 		$scope.submit = function() {
-			$scope.formData.$save(function(){ $scope.initialize(); });
+			$scope.formData.gamenameSlug = $filter('slug')($scope.formData.gamename);
+			$scope.formData.$save(function() {
+				$scope.initialize();
+			});
 		};
-		
-		$scope.filesChanged = function(elm){
+
+		$scope.filesChanged = function(elm) {
 			var reader = new FileReader();
-			reader.onload = function(e){
+			reader.onload = function(e) {
 				$scope.formData.gamekeys = e.target.result;
 				$scope.$apply();
 			};

@@ -15,7 +15,7 @@ router.use(function(req, res, next) {
 });
 
 router.options('*', function(req, res) {
-    res.send(200);
+	res.send(200);
 });
 // crud
 router.post('/', controller.create);
@@ -26,6 +26,6 @@ router.delete('/:id', controller.destroy);
 
 // others
 router.post('/has', controller.has_by_json);
-router.post('/claim/:gametitle', controller.claim);
+router.post('/claim/:gamenameSlug', controller.claim);
 
 module.exports = router;

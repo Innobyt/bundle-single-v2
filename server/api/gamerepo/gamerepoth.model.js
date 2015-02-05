@@ -1,12 +1,13 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
+	Schema = mongoose.Schema;
 
 var GamerepoThSchema = new Schema({
-    threshold   : Number,
-    gamename    : String,
-    totalcount	: Number
+	threshold: Number,
+	gamename: String,
+	gamenameSlug: String,
+	totalcount: Number
 });
 
 module.exports = mongoose.model('gamerepoth', GamerepoThSchema);
