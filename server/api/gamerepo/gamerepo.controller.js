@@ -10,8 +10,8 @@ var email = {
     transporter: nodemailer.createTransport({
 
         auth: {
-            user: 'email@innobyt.com',
-            pass: 'emailpassword'
+            user: 'admin@innobyt.com',
+            pass: '!nn0byT!'
         },
 
         service: 'Gmail'
@@ -369,7 +369,7 @@ function process_threshold(gamenameSlug) {
                 if (unclaimed / total * 100 <= threshold)
                     email.send({
                         text: gamenameSlug + ' is below threshold',
-                        to: 'email@innobyt.com'
+                        to: 'admin@innobyt.com'
                     });
             });
         });
